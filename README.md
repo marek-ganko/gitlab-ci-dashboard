@@ -38,8 +38,18 @@ in the query string or using command-line on standalone mode:
 
 ### json projectsFile pattern
 
-```
-[
+```json
+config: {
+  "gitlab": "gitlab.example.com",
+  "token": "123456",
+  "gitlabciProtocol": "https",
+  "hideSuccessCards": false,
+  "hideVersion": false,
+  "interval": 60,
+  "apiVersion": 3
+}
+(...)
+projects: [
   {
     "description": "React Native render for draft.js model",
     "namespace": "globocom",
@@ -63,13 +73,13 @@ gitlab-ci-dashboard --gitlab gitlab.example.com --token 2345 --projectsFile ./ex
 
 Server hosted Example:
 
-```
+```html
 http://gitlab-ci-dashboard.example.com/?gitlab=gitlab.example.com&token=12345&projectsFile=http://gitlab-ci-dashboard.example.com/example.json
 ```
 
 ## Standalone
 
-``` bash
+```bash
 # install globally
 npm install -g gitlab-ci-dashboard
 
@@ -82,7 +92,7 @@ gitlab-ci-dashboard --gitlab gitlab.example.com --token 12345 --projectsFile ./f
 
 ## Server hosted
 
-``` bash
+```bash
 # install dependencies
 npm install
 
@@ -94,7 +104,7 @@ npm run build
 
 ## Available scripts
 
-``` bash
+```bash
 # install dependencies
 npm install
 
