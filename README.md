@@ -36,7 +36,7 @@ in the query string or using command-line on standalone mode:
 - **interval** (optional): interval, in seconds, that monitor go to gitlab server take a new data. Default 60
 - **apiVersion** (optional): Gitlab API version. Default: 3
 
-### json projectsFile pattern
+### json config sample
 
 ```json
 config: {
@@ -47,8 +47,7 @@ config: {
   "hideVersion": false,
   "interval": 60,
   "apiVersion": 3
-}
-(...)
+},
 projects: [
   {
     "description": "React Native render for draft.js model",
@@ -56,7 +55,6 @@ projects: [
     "project": "react-native-draftjs-render",
     "branch": "master"
   }
-  (...)
 ]
 ```
 
