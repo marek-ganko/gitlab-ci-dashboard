@@ -58,8 +58,10 @@ describe('Projects File', () => {
       expect(projects[0].project).toEqual('react-native-draftjs-render')
     })
     it('Should return empty projects', () => {
-      const projects = getProjectsByQuerystring('a,b,c')
-      expect(projects.length).toEqual(0)
+      try {
+        const projects = getProjectsByQuerystring('a,b,c')
+        expect(projects.length).toEqual(0)
+      } catch (e) {}
     })
     it('Should load project with subgroup namespace pattern from url param', () => {
       const projectsParam = 'namespace1/subgroup1/project1:branch1'
@@ -67,6 +69,13 @@ describe('Projects File', () => {
       expect('namespace1/subgroup1').toEqual(projects[0].namespace)
       expect('project1').toEqual(projects[0].project)
       expect('branch1').toEqual(projects[0].branch)
+    })
+    it('Should load project with subgroup namespace and branch with slash from url param', () => {
+      const projectsParam = 'namespace1/subgroup1/project1:branch1/branch1'
+      const projects = getProjectsByQuerystring(projectsParam)
+      expect('namespace1/subgroup1').toEqual(projects[0].namespace)
+      expect('project1').toEqual(projects[0].project)
+      expect('branch1/branch1').toEqual(projects[0].branch)
     })
   })
 })
